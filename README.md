@@ -24,10 +24,10 @@
 
 #### We have also implemented a Voice Assistant that allows the user to go to any page on the website.
 
-#### More detail about the feature list and implementation can be found in the file attached.
+#### The doctor can also write a prescription to the patient while conducting the meeting. This can be later printed by the patient for future reference.
 
 ## Applications: 
 ### In these Covid-19 related times, physical appointments with doctors can be a threat to both the patient and the doctors life. By providing online consultation facility, we reduce this risk extensively. - We are focussing more on user experience by providing all the functionalities in a single app giving users the ease of access.
 
 ## Future Scope: 
-### We would be scaling the app enabling higher number of users and seemless functionality implementation. - We would be improving the security of the application by enabling two factor authentication on multiple access points. - We would restrict the chat functionality between the doctor and the patient to a certain number of days. After the query period is exceeded the patient will have to pay an additional fee to consult the doctor via chat for the previous appointment.
+### We would be scaling the app enabling higher number of users and seemless functionality implementation. - We would be improving the security of the application by enabling two factor authentication on multiple access points. - We would restrict the chat functionality between the doctor and the patient to a certain number of days. After the query period is exceeded the patient will have to pay an additional fee to consult the doctor via chat for the previous appointment. There is a transcript function that will allow the user to refer to the appointment once it is over. This is happening at the back end but the saving and viewing of this transcript has been kept as a future scope.
