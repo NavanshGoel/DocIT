@@ -36,7 +36,9 @@
 
 ### The entire database is set up on Remote MySQL. 
 ### Features like chatbot have been created using Azure Functionalities. Also,  the cluster for the MongoDB is hosted on Azure
-### Nutrition analysis and voice control have been made made using respective APIs.
+### Nutrition analysis and voice control have been made made using respective API calls.
+
+### To run the project locally, start the flask app after installing all the required libraries using 'pip' command mentioned in requirement.txt. Then open the app.py file and run it using any standard IDE like Spyder, VScode etc. Then go to '127.0.0.1:9000' to see the app running.
 
 ## Future Scope: 
 ### We would be scaling the app enabling higher number of users and seemless functionality implementation. - We would be improving the security of the application by enabling two factor authentication on multiple access points. - We would restrict the chat functionality between the doctor and the patient to a certain number of days. After the query period is exceeded the patient will have to pay an additional fee to consult the doctor via chat for the previous appointment. There is a transcript function that will allow the user to refer to the appointment once it is over. This is happening at the back end but the saving and viewing of this transcript has been kept as a future scope.
