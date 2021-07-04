@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DocIT | Homepage</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 40%;
+  padding: 10px;
+   /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+body {
+  font-family: Arial;
+  background-color: #E0E5EC;
+}
+
+@font-face {
+  font-family: Raleway;
+  src: url("{{ url_for('static',filename='Raleway-SemiBold.ttf') }}");
+}
+
+@font-face {
+  font-family: RalewayBold;
+  src: url("{{ url_for('static',filename='Raleway-ExtraBold.ttf') }}");
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("{{ url_for('static',filename='Roboto-Medium.ttf') }}");
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.left {
+  left: 0;
+  background-color: rgb(255, 255, 255);
+}
+
+.right {
+  right: 0;
+  background-color: rgb(255, 255, 255);
+}
+
+.centered {
+  position: relative;
+  top: 38%;
+  left: 65%;
+  transform: translate(-50%, -50%);
+  /* text-align: center; */
+}
+.centered1 {
+  position: relative;
+  transform: translate(-50%, -50%);
+}
+
+.div_color{
+  background-color: #E0E5EC;
+}
+
+.logo{
+  width: 35%;
+  height: 35%;
+}
+
+.homepage_image{
+    width: 95%;
+    height: 95%;
+    position: relative;
+    left: 40px;
+    top: 18px;
+}
+
+.custom_button_doctor{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-style: none;
+  border-radius:40px;
+  border-color: #E0E5EC;
+  width:200px;
+  height:50px;
+  background-color:#E0E5EC;
+  box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);
+  font-family: roboto,sans-serif;
+  color: #828582;
+}
+
+.custom_button_doctor:hover{
+  background-color: #3C53AC;
+  color: #cfcfcf;
+  box-shadow: 9px 9px 16px rgba(40, 40, 41, 0.35) inset, -9px -9px 16px    rgba(195, 199, 207, 0.25) inset;
+}
+
+.custom_button_patient{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-style: none;
+  border-radius:40px;
+  border-color: #E0E5EC;
+  width:200px;
+  height:50px;
+  background-color: #3C53AC ;
+  box-shadow: 9px 9px 16px rgb(132, 136, 143, 0.6), -9px -9px 16px    rgba(255,255,255, 0.5);
+  font-family: Roboto ,sans-serif;
+  color: #cfcfcf;
+}
+
+.custom_button_patient:hover{
+  background-color: #E0E5EC;
+  color: #828582;
+  box-shadow: 9px 9px 16px rgba(40, 40, 41, 0.35) inset, -9px -9px 16px    rgba(195, 199, 207, 0.25) inset;
+}
+
+.custom_login{
+  float: right;
+  right: 80px;
+  top: 20px;
+  position: relative;
+  border-style: none;
+  border-radius:20px;
+  border-color: #E0E5EC;
+  width:100px;
+  height:40px;
+  background-color:#3C53AC;
+  box-shadow: 9px 9px 16px rgba(132, 136, 143, 0.6), -9px -9px 16px    rgba(224, 220, 220, 0.5);
+  font-family: Roboto,sans-serif;
+  color: #cfcfcf  ;
+}
+
+.custom_login:hover{
+  background-color: #E0E5EC;
+  color: #828582;
+  box-shadow: 9px 9px 16px rgba(40, 40, 41, 0.35) inset, -9px -9px 16px    rgba(195, 199, 207, 0.25) inset;
+}
+
+</style>
+</head>
+<body>
+
+<div class="split left div_color">
+  <div class="centered">
+    <a href="homepage.html"><img src="{{url_for('static', filename='logo.png')}}" class="logo"></a>
+    <br />
+    <h1 style="font-family: RalewayBold; font-size: 45px;">Matching patients with great Doctors.</h1>
+    <br>
+    <div class="row">
+      <div class="column">
+        <h2 style="font-family: Raleway;">For Patients</h2>
+        <p style="font-family: Raleway; color: #858885 ;">Get connected with the best doctor's available online. With minimal fees and zero time wastage.</p>
+        <form action="signupp.html">
+          <br><button class='custom_button_patient' type="submit">Sign up and Consult</button>
+        </form>
+      </div>
+      <div class="column">
+        <h2 style="font-family: Raleway;">For Doctors</h2>
+        <p style="font-family: Raleway; color: #858885 ;">Get recurring patients and become a certified doctor with us. Become a consultant and gain valuable experience.</p>
+        <form action="signupd.html">
+          <button class="custom_button_doctor" type="submit">Become a Consultant</button>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="split right div_color">
+  
+    <form action="login.html">
+    <button type="submit" class="custom_login">Log In</button>
+    </form>
+  <div>
+    <img src="{{url_for('static', filename='hompege_animation.png')}}" class="homepage_image">
+  </div>
+</div>
+     
+</body>
+</html> 

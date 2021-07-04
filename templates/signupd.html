@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DocIT | Doctor Registration</title>
+<style>
+body {
+  font-family: Arial;
+  background-color: #E0E5EC;
+}
+
+@font-face {
+  font-family: RalewayBold;
+  src: url("{{ url_for('static',filename='Raleway-ExtraBold.ttf') }}");
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("{{ url_for('static',filename='Roboto-Medium.ttf') }}");
+}
+
+@font-face {
+  font-family: RobotoLight;
+  src: url("{{ url_for('static',filename='Roboto-Light.ttf') }}");
+}
+
+.p1{
+  background-color: #E0E5EC;
+  width: 300px;
+  border-style: none;
+  position: relative;
+  padding: 50px;
+  margin: 10px;
+  float: left;
+  box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);
+  
+}
+
+h1{
+  text-align: left;
+}
+
+.div_color{
+  background-color: #E0E5EC;
+}
+
+.logo{
+  width: 65%;
+  height: 65%;
+}
+
+a{
+  color: #505250;
+}
+
+a:hover{
+  color: #0c0c0c;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  background-color: #E0E5EC;
+}
+
+.right {
+  right: 0;
+  background-color: #E0E5EC;
+}
+
+.centered {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: RobotoThin;
+  color: #747574;
+}
+
+
+input[type=email] {
+  width: 90%;
+  height: 45px;
+  padding-left: 20px;
+  border-radius: 10px;
+  margin: 5px 0 12px 0;
+  border-style: none;
+  background: #E0E5EC;
+  color: #747574 ;
+  box-shadow: inset 5px 5px 15px #cbced1, inset -5px -5px 15px #ffffff;
+  font-family: RobotoLight;
+  font-size: 15px;
+}
+
+input[type=email]:focus {
+  background-color: #E0E5EC;
+  outline: none;
+  color: #747574 ;
+}
+
+.button {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-style: none;
+  border-radius:30px;
+  border-color: #E0E5EC;
+  width:150px;
+  height:50px;
+  background-color:#E0E5EC;
+  box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);
+  font-family: Roboto;
+  font-size: 15px;
+  color: #828582;
+}
+
+.button:hover{
+  background-color: #3C53AC;
+  color: #cfcfcf;
+  box-shadow: 9px 9px 16px rgba(40, 40, 41, 0.35) inset, -9px -9px 16px    rgba(195, 199, 207, 0.25) inset;
+}
+
+.doctor_image{
+  width: 90%;
+  height: 90%;
+  position: relative;
+  float: left;
+  left: -20px;
+  top: 70px;
+}
+
+</style>
+</head>
+<body>
+  <div class="split left">
+    <div class="centered">
+      <a href="homepage.html"><img src = "{{url_for('static', filename='logo.png')}}" class="logo"></a>
+      <div class= "p1" style="font-family: RobotoLight; font-size: 15px;">
+        <form action="validate1" method="post">
+          <h2 style="font-family: RalewayBold; font-size: 35px; color: #1d1c1c">Sign Up</h2>
+          <div style="color:red;">{{er}}</div>
+          <p style="font-family: RobotoLight; font-size: 15px; color: #747574 ;">Become a Consultant with us. Just enter your email and our team will contact you shortly!</p>
+          <input type="email" placeholder="Enter your Email Address" name="did" id="did" required><br>
+          <button type="submit" class="button">Send Email</button>
+        </form>
+        <br \><br \>Already a user? <a href="login.html">Log in</a> Now.    
+      </div>
+    </div>
+  </div>
+
+  <div class="split right">
+    <img src = "{{url_for('static', filename='doctor-animation.png')}}" class="doctor_image">
+  </div>
+</body>
+</html> 

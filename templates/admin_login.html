@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DocIT | Admin Login</title>
+<style>
+body {
+  font-family: Arial;
+  background: #E0E5EC;
+}
+
+@font-face {
+  font-family: RalewayBold;
+  src: url("{{ url_for('static',filename='Raleway-ExtraBold.ttf') }}");
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("{{ url_for('static',filename='Roboto-Medium.ttf') }}");
+}
+
+@font-face {
+  font-family: RobotoLight;
+  src: url("{{ url_for('static',filename='Roboto-Light.ttf') }}");
+}
+
+.logo{
+  width: 65%;
+  height: 65%;
+  margin-top: -30px;
+  margin-left: -20px;
+}
+
+.p1{
+  background-color: #E0E5EC;
+  width: 300px;
+  border-style: none;
+  position: relative;
+  padding: 50px;
+  margin: 10px;
+  margin-top: -10px;
+  float: left;
+  box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);
+}
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.div_color{
+  background-color: #E0E5EC;
+}
+
+input[type=text], input[type=password] {
+  width: 90%;
+  height: 45px;
+  padding-left: 20px;
+  border-radius: 10px;
+  margin: 5px 0 12px 0;
+  border-style: none;
+  background: #E0E5EC;
+  color: #747574 ;
+  box-shadow: inset 5px 5px 15px #cbced1, inset -5px -5px 15px #ffffff;
+  font-family: RobotoLight;
+  font-size: 15px;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #E0E5EC;
+  outline: none;
+  color: #747574 ;
+}
+
+.left {
+  left: 0;
+  background-color: #E0E5EC;
+}
+
+.right {
+  right: 0;
+  background-color: #E0E5EC;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+a{
+  color: #505250;
+}
+
+a:hover{
+  color: #0c0c0c;
+}
+
+.button {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-style: none;
+  border-radius:30px;
+  border-color: #E0E5EC;
+  width:150px;
+  height:50px;
+  background-color:#E0E5EC;
+  box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);
+  font-family: Roboto;
+  font-size: 15px;
+  color: #828582;
+}
+.button:hover{
+  background-color: #3C53AC;
+  color: #cfcfcf;
+  box-shadow: 9px 9px 16px rgba(40, 40, 41, 0.35) inset, -9px -9px 16px    rgba(195, 199, 207, 0.25) inset;
+
+}
+
+.login_image{
+  width: 1050px;
+  height: 585px;
+  position: relative;
+  float: left;
+  left: -150px;
+  top: 55px;
+}
+
+</style>
+</head>
+<body>
+  <div class="split left div_color">
+    <div class="centered">
+      <a href="homepage.html"><img src = "{{url_for('static', filename='logo.png')}}" class="logo"></a>
+      <div class="p1" style="font-family: RobotoLight; font-size: 15px;">
+        <form action="/adminpage" method="post">
+        <h2 style="font-family: RalewayBold; font-size: 35px; color: #1d1c1c">Admin Login</h2>
+        <div style="color:red;">{{er}}</div><br />
+        <input type="text" placeholder="Enter id" name="xid" id="xid" required><br>
+        <input type="password" placeholder="Enter Password" id="psw" name="psw" required><br>
+        <button type="submit" class="button">Log in</button>
+        </form>   
+      </div>
+    </div>
+  </div>
+
+  <div class="split right div_color">
+    <img src = "{{url_for('static', filename='login-animation.png')}}" class="login_image">
+  </div>
+     
+</body>
+</html> 

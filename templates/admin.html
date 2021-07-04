@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DocIT | Admin Dashboard</title>
+<style>
+body {
+  font-family: Arial;
+  background-color: #E0E5EC;
+}
+
+@font-face {
+  font-family: RalewayBold;
+  src: url("{{ url_for('static',filename='Raleway-ExtraBold.ttf') }}");
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("{{ url_for('static',filename='Roboto-Medium.ttf') }}");
+}
+
+@font-face {
+  font-family: RobotoLight;
+  src: url("{{ url_for('static',filename='Roboto-Light.ttf') }}");
+}
+
+.logo{
+  width: 65%;
+  height: 65%;
+  margin-top: -30px;
+  margin-left: -20px;
+}
+
+.p1{
+  background-color: #E0E5EC;
+  width: 400px;
+  border-style: none;
+  position: relative;
+  padding: 40px;
+  padding-top: 10px;
+  padding-bottom: 25px;
+  margin: 10px;
+  margin-top: 10%;
+  float: left;
+  border-radius: 2%;
+  box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);
+  font-family: RobotoLight;
+  font-size: 15px;
+}
+
+input[type=text], input[type=password],input[type=email] {
+  width: 90%;
+  height: 45px;
+  padding-left: 20px;
+  border-radius: 10px;
+  margin: 5px 0 12px 0;
+  border-style: none;
+  background: #E0E5EC;
+  color: #747574 ;
+  box-shadow: inset 5px 5px 15px #cbced1, inset -5px -5px 15px #ffffff;
+  font-family: RobotoLight;
+  font-size: 15px;
+}
+
+input[type=text]:focus, input[type=password]:focus ,input[type=email]:focus{
+  background-color: #E0E5EC;
+  outline: none;
+  color: #747574 ;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.button {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 1px;
+  border-style: none;
+  border-radius:30px;
+  border-color: #E0E5EC;
+  width:150px;
+  height:50px;
+  background-color:#E0E5EC;
+  box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);
+  font-family: Roboto;
+  font-size: 15px;
+  color: #828582;
+}
+.button:hover{
+  background-color: #3C53AC;
+  color: #cfcfcf;
+  box-shadow: 9px 9px 16px rgba(40, 40, 41, 0.35) inset, -9px -9px 16px    rgba(195, 199, 207, 0.25) inset;
+}
+
+.option {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-style: none;
+  border-radius:20px;
+  border-color: #E0E5EC;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 135px;
+  height:50px;
+  background-color:#E0E5EC;
+  box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);
+  font-family: Roboto;
+  font-size: 15px;
+  color: #828582;
+}
+
+.option:hover{
+  background-color:#E0E5EC;  
+  color: #adadad;
+  box-shadow: 9px 9px 16px rgba(149, 151, 156, 0.15) inset, -9px -9px 16px    rgb(149, 151, 156, 0.15) inset;
+}
+
+h1{
+    text-align: left;
+}
+
+.logo{
+  width: 20%;
+  height: 20%;
+  position: relative;
+  float: left;
+  display: flex;
+  margin-left: 2%;
+  margin-top: 0%; 
+}
+
+</style>
+</head>
+<body>
+  <div>
+    <a href="homepage.html"><img src="{{url_for('static', filename='logo.png')}}" class="logo"></a>
+    <div class="centered">
+      <div class="p1">
+        <form action="validate3" method="post">
+          <h2 style="font-family: RalewayBold; font-size: 35px; color: #1d1c1c; margin-bottom: 10px">Validate Doctor</h2>
+          <div style="color:red;">{{er}}</div>
+          <input type="text" placeholder="Enter Doctor's Name" name="name" id="name" required>
+          <input type="email" placeholder="Enter Doctor's Email" name="email" id="email" required>
+          <input type="text" placeholder="Enter Doctor's Phone Number" name="phone" id="phone" required>
+          <input type="text" placeholder="Enter Doctor's Specialization" name="special" id="special" required>
+          <input type="text" placeholder="Enter Doctor's Degree" name="deg" id="deg" required>
+          Enter Doctor's Gender:  
+          <select name="gender" id="gender" class= "option" style="width: 125px;padding-left: 20px; padding-right: 20px" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          <br /><br />
+          <input type="text" placeholder="Enter Doctor's location" name="loc" id="loc" required>
+          <button type="submit" class="button">Register</button>
+        </form>    
+      </div>
+      
+    </div>
+    <form action="/adminlogin" method="post">
+    <button type="submit" class="button" style="float: right; margin-right: 3%; margin-top: 3.5%">Logout</button>
+    </form>
+  </div>
+    
+</body>
+</html> 

@@ -1,0 +1,254 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{url_for('static', filename='settings.css')}}">
+    <title>DocIT | Profile</title>
+<style>
+body{
+    background-color: #E0E5EC;
+    margin-top: -10px;
+}
+
+@font-face {
+    font-family: RalewayBold;
+    src: url("{{ url_for('static',filename='Raleway-ExtraBold.ttf') }}");
+  }
+  
+  @font-face {
+    font-family: Roboto;
+    src: url("{{ url_for('static',filename='Roboto-Medium.ttf') }}");
+  }
+  
+  @font-face {
+    font-family: RobotoLight;
+    src: url("{{ url_for('static',filename='Roboto-Light.ttf') }}");
+  }
+
+  .logo{
+    width: 100%;
+  }
+
+  .pos{
+    position: relative !important;
+    z-index: 2 !important;
+    margin-top: 10px !important;
+    margin-left: 160px !important;
+  }
+  
+  .logopos{
+    position: absolute;
+    z-index: 4;
+    width: 170px;
+    margin-right: 0;
+    margin-left: 20px;
+  }
+
+  .title{
+    font-family: RalewayBold;
+    font-size: 27px;
+    margin-top: 5px;
+  }
+  .mic_div{
+    width: 28px !important;
+  }
+
+  .settings_div{
+    width: 25px !important;
+  }
+
+  .logout-button{
+    float: right;
+    top: 14px;
+    position: relative;
+    border-style: none;
+    border-radius:20px;
+    border-color: #E0E5EC;
+    width:100px;
+    height:40px;
+    background-color:#3C53AC;
+    box-shadow: 9px 9px 16px rgba(132, 136, 143, 0.6), -9px -9px 16px    rgba(224, 220, 220, 0.5);
+    font-family: Roboto,sans-serif;
+    color: #cfcfcf  ;
+  }
+
+  .logout-button:hover{
+    background-color: #3C53AC;
+    color: #cfcfcf;
+    box-shadow: 9px 9px 16px rgba(40, 40, 41, 0.35) inset, -9px -9px 16px    rgba(195, 199, 207, 0.25) inset;
+  
+  }
+
+  .view_profile{
+    background-image: url("{{url_for('static', filename='nutrition.png')}}");
+  }
+
+  .change_pass{
+    background-image: url("{{url_for('static', filename='appointment_pic.png')}}");
+  }
+
+  .tile_color{
+    background-color: #E0E5EC;
+    box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);
+    margin-top: -0.5px;
+    margin-left: -0.5px;
+    color: #3C53AC;
+    text-shadow: 0 0 7px #faf7f7, 0 0 7px #faf7f7;;
+  }
+
+  .heading-nav {
+    color: rgb(0, 0, 0);
+  }
+
+.neu{
+    height: 22.5em;
+    width: 20em;
+    position: absolute;
+    padding: 3em;
+    bottom: 0;
+    background-color: #E0E5EC;
+    box-shadow: 9px 9px 16px rgb(163,177,198,0.4), -9px -9px 16px    rgba(255,255,255, 0.6);
+    border-radius: 50px;
+    border-style: none;
+    font-family: RobotoLight;
+    font-size: 15px;
+    color: #4e4e4e ;
+    font-weight: bold;
+}
+
+.button {
+    border-style: none;
+    border-radius:30px;
+    border-color: #E0E5EC;
+    width:150px;
+    height:50px;
+    background-color:#E0E5EC;
+    box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);
+    font-family: Roboto;
+    font-size: 15px;
+    color: #828582;
+}
+
+.button:hover{
+    background-color: #3C53AC;
+    color: #cfcfcf;
+    box-shadow: 9px 9px 16px rgba(40, 40, 41, 0.35) inset, -9px -9px 16px    rgba(195, 199, 207, 0.25) inset;
+}
+
+.centered{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.heading{
+    position: relative;
+    text-align: center;
+    font-family: RalewayBold; 
+    font-size: 35px; 
+    color: #202020;
+    margin-top: -1em;
+}
+
+input[type=text]{
+    width: 90%;
+    height: 45px;
+    padding-left: 20px;
+    border-radius: 10px;
+    margin: 5px 0 12px 0;
+    border-style: none;
+    background: #E0E5EC;
+    color: #747574 ;
+    box-shadow: 9px 9px 16px rgb(163,177,198,0.4), -9px -9px 16px    rgba(255,255,255, 0.6), 
+    inset 9px 9px 16px rgb(163,177,198,0.4), inset -9px -9px 16px rgba(255,255,255, 0.6);
+    font-family: RobotoLight;
+    font-size: 15px;
+}
+  
+input[type=text]:focus{
+    background-color: #E0E5EC;
+    outline: none;
+    color: #747574 ;
+}
+
+.ingred{
+    padding-left: 20px;
+    border-radius: 10px;
+    margin: 5px 0 12px 0;
+    border-style: none;
+    background: #E0E5EC;
+    color: #747574 ;
+    box-shadow: 9px 9px 16px rgb(163,177,198,0.4), -9px -9px 16px    rgba(255,255,255, 0.6), 
+    inset 9px 9px 16px rgb(163,177,198,0.4), inset -9px -9px 16px rgba(255,255,255, 0.6);
+    font-family: RobotoLight;
+    font-size: 15px;
+}
+
+.ingred:focus{
+    background-color: #E0E5EC;
+    outline: none;
+    color: #747574 ;
+}
+
+.content{
+    height: 500px;
+    width: 30em;
+    padding: 3em;
+    bottom: 0;
+    background-color: #E0E5EC;
+    box-shadow: 9px 9px 16px rgb(163,177,198,0.4), -9px -9px 16px rgba(255,255,255, 0.6);
+    border-radius: 50px;
+    border-style: none;
+}
+
+</style>
+</head>
+
+<body>
+    <div class="logopos"><a href="/dashboardp"><img src="{{url_for('static', filename='logo.png')}}" class="logo"></a></div>
+    <nav class="navbar navbar-expand-lg div_color px-0 py-3 pos">
+      <div class="container-xl navig">
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <!-- Nav -->
+          <div class="navbar-nav mx-lg-auto">
+            <p class="heading-nav title" >User Profile</p>
+          </div> 
+    
+          <div class="d-flex align-items-lg-center mt-3 mt-lg-0 mic_div">
+            <a href="https://docit-voicecontrol.netlify.app/" target="_blank">
+              <img src="{{url_for('static', filename='mic.png')}}" class="mic">
+            </a>
+          </div>
+          &nbsp;	&nbsp;
+          <div class="d-flex align-items-lg-center mt-3 mt-lg-0 settings_div">
+            <a href="settings.html">
+              <img src="{{url_for('static', filename='settings.png')}}" class="settings">
+            </a>
+          </div>
+          &nbsp;	&nbsp;
+          <!-- Action -->
+          <form action="/logout">
+            <button type="submit" class="logout-button">Logout</button>
+          </form>
+        </div>
+      </div>
+    </nav> 
+    <div class="content centered">
+        Username: {{prof[0]}} <br>
+        <hr width="100%;" style="border-width:0;background-color:black;"><br>
+        User Email: {{prof[1]}} <br>
+        <hr width="100%;" style="border-width:0;background-color:black;"><br>
+
+        Phone Number: {{prof[2]}} <br>
+        <hr width="100%;" style="border-width:0;background-color:black;"><br>
+        Gender: {{prof[3]}} <br>
+        <hr width="100%;" style="border-width:0;background-color:black;"><br>
+        Date Of Birth: {{prof[4]}} <br>
+        <hr width="100%;" style="border-width:0;background-color:black;"><br>
+    </div>
+</body>
+</html>

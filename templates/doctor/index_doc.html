@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{url_for('static', filename='index_doc.css')}}">
+    <title>DocIT | Dashboard</title>
+    <style>
+      @font-face {
+        font-family: RalewayBold;
+        src: url("{{ url_for('static',filename='Raleway-ExtraBold.ttf') }}");
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("{{ url_for('static',filename='Roboto-Medium.ttf') }}");
+      }
+
+      .div_color{
+        background-color: #E0E5EC;
+      }
+
+      .logo{
+        width: 100%;
+        height: 100%;
+      }
+
+      .pos{
+        position: relative !important;
+        z-index: 2 !important;
+        margin-top: 10px !important;
+        margin-left: 160px !important;
+      }
+      
+      .logopos{
+        position: absolute;
+        z-index: 4;
+        width: 170px;
+        margin-right: 0;
+        margin-left: 20px;
+        margin-top: -10px;
+      }
+
+      .title{
+        font-family: RalewayBold;
+        font-size: 27px;
+        margin-top: 5px;
+      }
+      .mic_div{
+        width: 28px !important;
+      }
+
+      .settings_div{
+        width: 25px !important;
+      }
+
+      .logout-button{
+        float: right;
+        top: 7px;
+        position: relative;
+        border-style: none;
+        border-radius:20px;
+        border-color: #E0E5EC;
+        width:100px;
+        height:40px;
+        background-color:#3C53AC;
+        box-shadow: 9px 9px 16px rgba(132, 136, 143, 0.6), -9px -9px 16px    rgba(224, 220, 220, 0.5);
+        font-family: Roboto,sans-serif;
+        color: #cfcfcf  ;
+      }
+
+      .logout-button:hover{
+        background-color: #3C53AC;
+        color: #cfcfcf;
+        box-shadow: 9px 9px 16px rgba(40, 40, 41, 0.35) inset, -9px -9px 16px    rgba(195, 199, 207, 0.25) inset;
+      
+      }
+
+      .calender{
+        background-image: url("{{url_for('static', filename='calender.png')}}");
+      }
+
+      .appointment_pic{
+        background-image: url("{{url_for('static', filename='appointment_pic.png')}}");
+      }
+
+      .connect{
+        background-image: url("{{url_for('static', filename='connect.png')}}");
+      }
+
+      .newsapi{
+        background-image: url("{{url_for('static', filename='newsapi.png')}}");
+      }
+
+      .nutrition{
+        background-image: url("{{url_for('static', filename='nutrition.png')}}");
+      }
+
+      .faq{
+        background-image: url("{{url_for('static', filename='faq.png')}}");
+      }
+
+      .tile_color{
+        background-color: #E0E5EC;
+        box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5);
+        margin-top: -0.5px;
+        margin-left: -0.5px;
+        color: #3C53AC;
+        text-shadow: 0 0 7px #faf7f7, 0 0 7px #faf7f7;;
+      }
+
+      .heading-nav {
+        color: rgb(0, 0, 0);
+      }
+
+    </style>
+  </head>
+  <body class="div_color">
+    <div class="logopos"><a href="/dashboardd"><img src="{{url_for('static', filename='logo.png')}}" class="logo"></a></div>
+    <nav class="navbar navbar-expand-lg div_color px-0 py-3 pos">
+      <div class="container-xl navig">
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <!-- Nav -->
+          <div class="navbar-nav mx-lg-auto">
+            <p class="heading-nav title" >DASHBOARD</p>
+          </div> 
+    
+          <div class="d-flex align-items-lg-center mt-3 mt-lg-0 mic_div">
+            <a href="https://docit-voicecontrold.netlify.app/" target="_blank">
+              <img src="{{url_for('static', filename='mic.png')}}" class="mic">
+            </a>
+          </div>
+          &nbsp;	&nbsp;
+          <div class="d-flex align-items-lg-center mt-3 mt-lg-0 settings_div">
+            <a href="settings_doc.html">
+              <img src="{{url_for('static', filename='settings.png')}}" class="settings">
+            </a>
+          </div>
+          &nbsp;	&nbsp;
+          <!-- Action -->
+          <form action="/logout">
+            <button type="submit" class="logout-button">Logout</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+<div class="content div_color">
+    <a class="card" href="/calendard.html"> 
+      <div class="front tile_color calender">
+        <p>Calendar</p>
+      </div>
+      <div class="back">
+        <div>
+          <p>List of all scheduled appointments and meetings presented in an organised calendar</p>
+          <br>
+          <button class="button">Click Here</button>
+        </div>
+      </div></a><a class="card" href="appointments_doc.html">
+      <div class="front tile_color appointment_pic" >
+        <p>Appointments</p>
+      </div>
+      <div class="back">
+        <div>
+          <p>View or cancel appointments.</p>
+          <br>
+          <button class="button">Click Here</button>
+        </div>
+      </div></a><a class="card" href="connect_doc.html">
+        <div class="front tile_color connect">
+        <p>Connect</p>
+      </div>
+      <div class="back">
+        <div>
+          <p>Connect and interact with scheduled patients.</p>
+          <br>
+          <button class="button">Click Here</button>
+        </div>
+      </div></a><a class="card" href="/newsd.html">
+        <div class="front tile_color newsapi" >
+        <p>News</p>
+      </div>
+      <div class="back">
+        <div>
+          <p>View updated news.</p>
+          <br>
+          <button class="button">Click Here</button>
+        </div>
+      </div></a><a class="card" href="nutrition_doc.html">
+      <div class="front tile_color nutrition">
+        <p>Nutrition</p>
+      </div>
+      <div class="back">
+        <div>
+          <p>Get the information related various food products and ingredients</p>
+          <br>
+          <button class="button">Click Here</button>
+        </div>
+      </div></a><a class="card" href="faqbot_doc.html">
+      <div class="front tile_color faq">
+        <p>FAQ Chatbot</p>
+      </div>
+      <div class="back">
+        <div>
+          <p>For any assistance and guidance.</p>
+          <br>
+          <button class="button">Click Here</button>
+        </div>
+      </div></a>
+  </div>
+  <div>
+</div>
+  </body>
+</html>

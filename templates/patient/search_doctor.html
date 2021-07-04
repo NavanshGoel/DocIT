@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{{url_for('static', filename='modify_appointments.css')}}">
+<title>DocIT | Search</title>
+<style>
+
+@font-face {
+  font-family: RalewayBold;
+  src: url("{{ url_for('static',filename='Raleway-ExtraBold.ttf') }}");
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("{{ url_for('static',filename='Roboto-Medium.ttf') }}");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: 16px Arial;  
+  background-color: #E0E5EC;
+}
+
+/*the container must be positioned relative:*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+input[type=submit] {
+  background-color: #3C53AC;
+  color: #fff;
+  cursor: pointer;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+  
+
+  .container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 75%;
+  }
+
+  .image-block {
+    margin-top: 24px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px;
+  }
+
+  .image-block-inner {
+    -webkit-box-shadow: 0px 3px 10px 1px rgba(204, 204, 204 0, 1);
+    -moz-box-shadow: 0px 3px 10px 1px rgba(204, 204, 204 0, 1);
+    box-shadow: 9px 9px 16px rgb(163,177,198,0.4), -9px -9px 16px    rgba(255,255,255, 0.6);
+  }
+
+  .image-block li>.image-block-inner {
+    padding-bottom: 30px;
+    background-color: #fff;
+    max-width: 450px;
+    height: 100%;
+  }
+
+  .text-center{
+    text-align: center;
+  }
+
+  a {
+    color: #111;
+    text-decoration: none;
+  }
+
+  h1,
+  h4 a {
+    text-transform: uppercase;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  .image-block li>.image-block-inner>a {
+    display: block;
+    overflow: hidden;
+  }
+
+  .image-block li>.image-block-inner>a img {
+    border: 1px solid #e1e1df;
+  }
+
+  .image-block li>.image-block-inner:hover {
+    background-color: #eee;
+  }
+
+  .hp-posts-cat {
+    margin-bottom: 13px;
+    margin-top: 35px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    display: inline-block;
+  }
+
+  .news {
+    font-family: 'Oswald', sans-serif;
+    margin-top: -6rem;
+  }
+
+  .news .image-block li>.image-block-inner h4,
+  .hp-posts-cat,
+  .news .image-block li>.image-block-inner p,
+  .read-more {
+    padding: 0 28px;
+    max-width: 450px;
+    word-wrap: break-word;
+  }
+
+  .read-more {
+    display: block;
+    text-decoration: underline;
+    margin-top: 30px;
+    font-weight: 600;
+  }
+
+  /* Media Queries */
+
+  @media (min-width: 992px) {
+    .col-md-5 {
+      width: 41.66667%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .image-block li.image-block1 {
+      padding-left: 26px;
+      padding-right: 14.5px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .image-block li>.image-block-inner>a {
+      max-height: 245px;
+    }
+  }
+
+  @media (min-width: 992px) {
+
+    .pl-lg-0,
+    .px-lg-0 {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .ml-lg-0,
+    .mx-lg-0 {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .logo{
+    width: 100%;
+    height: 100%;
+  }
+
+  .pos{
+    position: relative !important;
+    z-index: 2 !important;
+    margin-top: 10px !important;
+    margin-left: 160px !important;
+  }
+  
+  .logopos{
+    position: absolute;
+    z-index: 4;
+    width: 170px;
+    margin-right: 0;
+    margin-left: 20px;
+    margin-top: -10px;
+  }
+
+  .title{
+    font-family: RalewayBold;
+    font-size: 27px;
+    margin-top: 5px;
+    color: black;
+  }
+
+  .mic_div{
+    width: 28px !important;
+  }
+
+  .settings_div{
+    width: 25px !important;
+  }
+
+  .logout-button{
+    float: right;
+    position: relative;
+    border-style: none;
+    border-radius:20px;
+    border-color: #E0E5EC;
+    width:100px;
+    height:40px;
+    background-color:#3C53AC;
+    box-shadow: 9px 9px 16px rgba(132, 136, 143, 0.6), -9px -9px 16px    rgba(224, 220, 220, 0.5);
+    font-family: Roboto,sans-serif;
+    color: #cfcfcf  ;
+  }
+
+  .logout-button:hover{
+    background-color: #3C53AC;
+    color: #cfcfcf;
+    box-shadow: 9px 9px 16px rgba(40, 40, 41, 0.35) inset, -9px -9px 16px    rgba(195, 199, 207, 0.25) inset;
+  
+  }
+
+  .search-bar{
+    left: 35%;
+    position: relative;
+    width: 500px;
+  }
+
+  .tile{
+    width: 40%;
+    height: 7em;
+    background-color: #f5f5f5;
+    margin: 1em;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 9px 9px 16px rgb(163,177,198,0.4), -9px -9px 16px    rgba(228, 225, 225, 0.6);
+  }
+
+  .info-name{
+    width: 90%;
+    margin-top: -2px !important;
+  }
+  .info{
+    position: relative;
+    float: bottom,left;
+  }
+
+  .info-line{
+    width: auto;
+    margin-top: 0px !important;
+  }
+
+  .tile-button{
+    float: right;
+    position: relative;
+    border-style: none;
+    border-radius:10px;
+    border-color: #E0E5EC;
+    width:100px;
+    height:40px;
+    background-color:#3C53AC;
+    box-shadow: 9px 9px 16px rgba(132, 136, 143, 0.6), -9px -9px 16px    rgba(224, 220, 220, 0.5);
+    font-family: Roboto,sans-serif;
+    color: #cfcfcf  ;
+    right: 0;
+    margin-left: 90px !important;
+  }
+
+  .tile-button:hover{
+    background-color: #3C53AC;
+    color: #cfcfcf;
+    box-shadow: 9px 9px 16px rgba(40, 40, 41, 0.35) inset, -9px -9px 16px    rgba(195, 199, 207, 0.25) inset;
+  }
+  </style>
+</head>     
+<body>
+  <div class="logopos"><a href="/dashboardp"><img src="{{url_for('static', filename='logo.png')}}" class="logo"></a></div>
+  <nav class="navbar navbar-expand-lg div_color px-0 py-3 pos">
+    <div class="container-xl navig">
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <!-- Nav -->
+        <div class="navbar-nav mx-lg-auto">
+          <p class="heading-nav title" >SEARCH A DOCTOR</p>
+        </div> 
+  
+        <div class="d-flex align-items-lg-center mt-3 mt-lg-0 mic_div">
+          <a href="https://docit-voicecontrol.netlify.app/" target="_blank">
+            <img src="{{url_for('static', filename='mic.png')}}" class="mic">
+          </a>
+        </div>
+        &nbsp;	&nbsp;
+        <div class="d-flex align-items-lg-center mt-3 mt-lg-0 settings_div">
+          <a href="settings.html">
+            <img src="{{url_for('static', filename='settings.png')}}" class="settings">
+          </a>
+        </div>
+        &nbsp;	&nbsp;
+        <!-- Action -->
+        <form action="/logout">
+          <button type="submit" class="logout-button">Logout</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+<br /><br />
+<form action="/query_doctor" method="post" class="search-bar">
+<autocomplete autocomplete="off">
+  <div class="autocomplete" style="width:400px;">
+    <input id="myInput" type="text" name="doctorlist" placeholder="Enter Specialization....">
+  </div>
+  <input type="submit" style="border-radius: 5px;"></autocomplete>
+</form>
+<form action="/book_appointment.html" method="post">
+<section class="news pt-0" style="margin-top: 20px;">
+  <div class="container mt-md-5 ">
+    <ul class="row d-lg-flex list-unstyled image-block justify-content-center px-lg-0 mx-lg-0 ">
+        {% for post in docs %}
+        <li class="col-lg-4 col-md-5 image-block full-width p-3 tile">
+            <h4 class="mt-3 info-name">
+              {{post[1]}}
+            </h4>
+            <div class="info">
+              <p class="info-line">Speciality: {{post[2]}}</p> 
+              <p class="info-line">Degree: {{post[3]}} </p> 
+              <p class="info-line">Gender: {{post[4]}} </p> 
+            </div>
+            <button type="submit" class="tile-button" name="submit_button" value="{{post[0]}}">Search</button>
+          </li>
+        {% endfor %}
+    </ul>
+  </div>
+</section>
+</form>
+<script>
+function autocomplete(inp, arr) {
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+          b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        currentFocus++;
+        addActive(x);
+      } else if (e.keyCode == 38) { 
+        currentFocus--;
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        e.preventDefault();
+        if (currentFocus > -1) {
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+
+  function addActive(x) {
+    if (!x) return false;
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+  });
+}
+
+/*An array containing all the country names in the world:*/
+var doctors = ["Neurosurgeon","General Physician","Dentist","Orthologist"];
+
+/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+autocomplete(document.getElementById("myInput"), doctors);
+</script>
+
+</body>
+</html>
