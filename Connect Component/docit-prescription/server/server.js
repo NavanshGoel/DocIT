@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const Document = require("./Document")
 
-mongoose.connect("mongodb+srv://docit:azurehack_123@cluster0.n9ngo.mongodb.net/docitprescription?retryWrites=true&w=majority", {
+mongoose.connect("<MONGO DB ATLAS DATABASE KEY>", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
