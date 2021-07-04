@@ -161,7 +161,7 @@ def adminpage():
     if request.method == 'POST':
         xid = request.form['xid']
         psw = request.form['psw']
-        if xid == "ADMIN1001" and psw == "1001":
+        if xid == config.adminid and psw == config.adminpass:
             return render_template('admin.html')
     return render_template('admin_login.html', er="Account not found")
 
@@ -742,7 +742,6 @@ def call_calendar_eve():
                          'class': i[3], 'start': i[4], 'end': i[5]}))
             resp = jsonify({'success': 1, 'result': l})
             resp.status_code = 200
-            # i[4,5]-86400000
             return resp
         except Exception as e:
             print(e)
@@ -784,4 +783,4 @@ def call_video_pat():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='127.0.0.1', port=9000)
