@@ -3,7 +3,7 @@
 ## Objective:
 ### The project aims to connect doctors and patients during lockdown via online technology. During the pandemic, since no one could go outside, people had to resort to video conferencing with their doctors in case of any medical emergency and guidance. Widespread use of video conferencing platforms like Google Meet, Microsoft Teams, etc. has become prevalent during the lockdown period. Previously there have been applications like Practo that allow the user to connect with a doctor.
 
-## Implentation: 
+## Implementation: 
 ### With this project, we aim at developing a multipurpose one-for-all website that provides a variety of features to the user. Our website will inculcate the following features:
 
 #### Login and Signup Pages for both Patient and Doctor as well as Admin
