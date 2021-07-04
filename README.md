@@ -34,7 +34,8 @@
 
 ### The application can be also run on the local system. Although, to run a few components installation of node.js and npm is required. The standard node.js installation will allow the successful running of features like the voice control, chat section and video call section. 
 
-### The entire database is set up on Remote MySQL. Features like chatbot have been created using Azure Functionalities.
+### The entire database is set up on Remote MySQL. 
+### Features like chatbot have been created using Azure Functionalities. Also,  the cluster for the MongoDB is hosted on Azure
 ### Nutrition analysis and voice control have been made made using respective APIs.
 
 ## Future Scope: 
