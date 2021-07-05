@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import logo from './logo.png';
 
-const projectID = 'd085dc03-bef8-477c-98eb-a18ab92427a0';
+const projectID = '<CHATENGINE.IO PROJECT ID>';
 
 const Modal = () => {
   const [username, setUsername] = useState('');
