@@ -23,8 +23,7 @@ export default function TextEditor() {
   const [quill, setQuill] = useState()
 
   useEffect(() => {
-    const s = io("https://7u7yo-3001.sse.codesandbox.io")
-    // const s = io("https://docit-prescription-server.herokuapp.com/")
+    const s = io("localhost:3001")
     setSocket(s)
 
     return () => {
